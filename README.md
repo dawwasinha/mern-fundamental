@@ -1,143 +1,128 @@
 # MERN FUNDAMENTAL#1
 
-## Overview
+## Gambaran Umum
 
-This project consists of two main components:
+Proyek ini terdiri dari dua komponen utama:
 
-1. **Frontend**: A React application for the user interface.
-2. **Backend**: A Node.js and Express application for handling server-side logic and interacting with a database.
+1. **Frontend**: Aplikasi React untuk antarmuka pengguna.
 
----
-
-## Project Structure
+2. **Backend**: Aplikasi Node.js dan Express untuk menangani logika sisi server dan berinteraksi dengan basis data.
 
 ---
 
-## Setup Instructions
+## Struktur Proyek
 
-### 1. Create the Project Folder
-Run the following commands in your terminal to set up the project structure:
+---
+
+## Petunjuk Penyiapan
+
+### 1. Buat Folder Proyek
+Jalankan perintah berikut di terminal Anda untuk menyiapkan struktur proyek:
 ```bash
 mkdir mern-fundamental
 cd mern-fundamental
 npx create-react-app client
 
-### 2. Create the React Project (Client)
+### 2. Buat Proyek React (Klien)
 npx create-react-app client
 
-### 3. Create the Node/Express Project (Server)
+### 3. Buat Proyek Node/Express (Server)
 mkdir server
 cd server
 npm init -y
 
 ---
 
-## Backend Setup (Server)
+## Penyiapan Backend (Server)
 
-### 1. Install Express
+### 1. Instal Express
 cd server
 npm install express
 
-### 2. Create the index.js File
-Create a file named index.js in the server folder and add the following code:
+### 2. Buat File index.js
+Buat file bernama index.js di folder server dan tambahkan kode berikut:
 
 const express = require('express');
-const app = express();
-const cors = require('cors');
+const app = express(); const cors = require('cors');
 
 app.use(cors());
 
 app.get('/', (req, res) => {
-  res.send('Hello from our server!');
+res.send('Halo dari server kami!');
 });
 
 app.listen(8080, () => {
-  console.log('server listening on port 8080');
+console.log('server mendengarkan pada port 8080');
 });
 
-### 3. Start the Server
-Run the following command in the server directory:
+### 3. Jalankan Server
+Jalankan perintah berikut di direktori server:
 
-bash
-Copy code
 node index.js
 
 ---
 
-## Frontend Setup (Client)
+## Pengaturan Frontend (Klien)
 
-### 1. Install Axios
-In the client directory, run:
+### 1. Instal Axios
+Di direktori klien, jalankan:
 
-bash
-Copy code
 npm install axios
 
-### 2. Update the App.js File
-Replace the default content of App.js with:
+### 2. Perbarui Berkas App.js
+Ganti konten bawaan App.js dengan:
 
 import axios from 'axios';
 import './App.css';
 
 const apiCall = () => {
-  axios.get('http://localhost:8080').then((data) => {
-    console.log(data);
-  });
+axios.get('http://localhost:8080').then((data) => {
+console.log(data);
+});
 };
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <button onClick={apiCall}>Make API Call</button>
-      </header>
-    </div>
-  );
+return (
+<div className="App">
+<header className="App-header">
+<button onClick={apiCall}>Make API Call</button>
+</header>
+</div>
+);
 }
 
 export default App;
 
-### 3. Start the React App
-Run the following command in the client directory:
+### 3. Jalankan Aplikasi React
+Jalankan perintah berikut di direktori klien:
 
 npm start
 
 ---
 
-## CORS Configuration
-To avoid CORS errors, we use the cors package in our backend. Install it by running:
+## Konfigurasi CORS
+Untuk menghindari kesalahan CORS, kami menggunakan paket cors di backend kami. Instal dengan menjalankan:
 
 cd server
 npm install cors
 
-Update the index.js file to include:
+Perbarui berkas index.js untuk menyertakan:
 
 const cors = require('cors');
+
 app.use(cors());
 
 ---
 
-## Testing the Application
-Start the server:
+## Menguji Aplikasi
+Jalankan server:
 
 cd server
 node index.js
-Start the React app:
+
+Jalankan aplikasi React:
 
 cd client
 npm start
 
-Open the React app in your browser, click the Make API Call button, and check the console for the response from the server.
-
-
-
-
-
-
-
-
-
-
-
-
-
+Buka aplikasi React di peramban Anda, klik tombol Make API Call, dan periksa konsol untuk respons dari server.
